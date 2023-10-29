@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      background-color: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #image-container {
+      margin-bottom: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      /* Ensures the image is responsive */
+      height: auto;
+    }
+
+    #login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="image-container">
+    <img src="https://i.ibb.co/CwTH4R7/Untit-SADled-1.jpg" alt="Story Image">
+  </div>
+  <div id="login-container">
+    <h2>חשבון הבנק של מר שמשון</h2>
+    <h4>רמז: הסיסמא היא ללא שמו המלא</h4>
+    <form id="login-form" dir="rtl">
+      <input type="text" id="username" name="username" value="שמשון הגיבור" required>
+      <br>
+      <input type="password" id="password" placeholder="סיסמא" required>
+      <br>
+      <button type="submit">שלח</button>
+      <p class="error-message" id="error-message"></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('login-form').onsubmit = function (event) {
+      event.preventDefault();
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+      var errorMessage = document.getElementById('error-message');
+
+      var correctUsername = 'שמשון הגיבור';
+      var correctPassword = '19700803כדורגלברלד';
+
+      if (username === correctUsername && password === correctPassword) {
+        errorMessage.style.color = 'green';
+        errorMessage.innerText = 'כל הכבוד, פרצתם לחשבון של שמשון הגיבור. שימו לב, שמשון הפסיד את כל כספו ולכן אין לו כסף בחשבון';
+      } else {
+        errorMessage.innerText = 'שגיאה! פרטים לא נכונים';
+      }
+    }
+  </script>
+
+</body>
+
+</html>
